@@ -50,11 +50,9 @@ function App() {
     setLoading(true);
     try {
       const response = await axios.post("https://code-translator-backend.onrender.com/convert", {
-        code,
-        source_lang: sourceLang,
-        target_lang: targetLang,
+        prompt: code,
+        language: targetLang,
         mode: mode,
-        verbose: verbose,
       });
 
       const output = response.data.converted_code;
